@@ -18,7 +18,7 @@ function plotAges() {
         Plotly.newPlot("bar", data);
     })
 }
-plotAges();
+// plotAges();
 
 function plotStates() {
     d3.json("http://localhost:5000/states").then(function (data) {
@@ -128,4 +128,4 @@ function plotCause() {
         Plotly.newPlot("bar", data);
     })
 }
-// plotCause();
+plotCause();
