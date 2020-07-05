@@ -42,31 +42,31 @@ def welcome():
     return render_template("index.html")
 
 
-# @app.route("/data")
-# def names():
-#     # Create our session (link) from Python to the DB
-#     session = Session(engine)
+@app.route("/data")
+def names():
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
 
-#     """Return a list of all passenger names"""
-#     # Query all passengers
+    """Return a list of all passenger names"""
+    # Query all passengers
     
-#     results = session.query(Encounter.State, Encounter.Age, Encounter.Gender, Encounter.Race, Encounter.Year, Encounter.Mental_Illness, Encounter.Latitude, Encounter.Longitude).all()
-#     session.close()
+    results = session.query(Encounter.State, Encounter.Age, Encounter.Gender, Encounter.Race, Encounter.Year, Encounter.Mental_Illness, Encounter.Latitude, Encounter.Longitude).all()
+    session.close()
 
-#     # Convert list of tuples into normal list
-#     all_encounters = []
-#     for state, age, gender, race, year, illness, lat, lon in results:
-#         encounter_dict={}
-#         encounter_dict["state"]= state
-#         encounter_dict["age"]= age
-#         encounter_dict["gender"]= gender
-#         encounter_dict["race"]= race
-#         encounter_dict["year"]= year
-#         encounter_dict["illness"]= illness
-#         all_encounters.append(encounter_dict)
+    # Convert list of tuples into normal list
+    all_encounters = []
+    for state, age, gender, race, year, illness, lat, lon in results:
+        encounter_dict={}
+        encounter_dict["state"]= state
+        encounter_dict["age"]= age
+        encounter_dict["gender"]= gender
+        encounter_dict["race"]= race
+        encounter_dict["year"]= year
+        encounter_dict["illness"]= illness
+        all_encounters.append(encounter_dict)
 
 
-#     return jsonify(all_encounters)
+    return jsonify(all_encounters)
 
 @app.route("/states")
 def count():
@@ -163,6 +163,10 @@ def genders():
         all_genders.append(gender_dict)
 
     return jsonify(all_genders)
+
+@app.route("/stateData")
+def stateData():
+    return jsonify("CleanData/us-states.js")
     
 
 if __name__ == '__main__':
