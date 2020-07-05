@@ -22,7 +22,7 @@ States = Base.classes.states
 Ages = Base.classes.age
 Years = Base.classes.years
 Genders = Base.classes.gender
-Cause = Base.classes.cause_of_death
+Causes = Base.classes.cause_death
 Illness = Base.classes.mental_illness
 
 
@@ -132,7 +132,7 @@ def illnesses():
 
     return jsonify(all_illnesses)
 
-app.route("/causeOfDeath")
+app.route("/causeDeath")
 def cause():
     session = Session(engine)
 

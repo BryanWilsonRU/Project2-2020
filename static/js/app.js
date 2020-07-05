@@ -18,7 +18,7 @@ function plotAges() {
         Plotly.newPlot("bar", data);
     })
 }
-// plotAges();
+plotAges();
 
 function plotStates() {
     d3.json("http://localhost:5000/states").then(function (data) {
@@ -109,7 +109,7 @@ function plotGenders() {
 // plotGenders();
 
 function plotCause() {
-    d3.json("http://localhost:5000/causeOfDeath").then(function (data) {
+    d3.json("http://localhost:5000/causeDeath").then(function (data) {
         var cause = data.map(d => d.cause);
         var count = data.map(d => d.count);
 
@@ -128,4 +128,4 @@ function plotCause() {
         Plotly.newPlot("bar", data);
     })
 }
-plotCause();
+// plotCause();
