@@ -6,9 +6,9 @@ from sqlalchemy import create_engine, func
 from flask import Flask, jsonify
 from flask import render_template
 
-#################################################
+############################################
 # Database Setup
-#################################################
+############################################
 engine = engine = create_engine('postgresql://postgres:postgres@localhost:5432/police_violence_db')
 
 # reflect an existing database into a new model
@@ -26,15 +26,15 @@ Cause = Base.classes.cause_of_death
 Illness = Base.classes.mental_illness
 
 
-#################################################
+############################################
 # Flask Setup
-#################################################
+############################################
 app = Flask(__name__)
 
 
-#################################################
+############################################
 # Flask Routes
-#################################################
+############################################
 
 @app.route("/")
 def welcome():
