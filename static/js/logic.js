@@ -1,6 +1,6 @@
 var myMap = L.map("map", {
-    center: [34.0522, -118.2437],
-    zoom: 8
+    center: [37.09, -95.71],
+    zoom: 5
 });
 
 // var myMap = L.map("map").setView([39.8283, -98.5795], 5);
