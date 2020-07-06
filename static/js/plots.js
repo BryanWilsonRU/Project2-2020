@@ -1,5 +1,5 @@
-function plotAges() {
-    d3.json("http://localhost:5000/ages").then(function (data) {
+function init() {
+    d3.json("/ages").then(function (data) {
         var age = data.map(d => d.age);
         var count = data.map(d => d.count);
 
@@ -20,8 +20,12 @@ function plotAges() {
 }
 // plotAges();
 
+function updatePlotly(){
+    
+}
+
 function plotStates() {
-    d3.json("http://localhost:5000/states").then(function (data) {
+    d3.json("/states").then(function (data) {
         var state = data.map(d => d.state);
         var count = data.map(d => d.count);
 
@@ -43,7 +47,7 @@ function plotStates() {
 // plotStates();
 
 function plotYears() {
-    d3.json("http://localhost:5000/years").then(function (data) {
+    d3.json("/years").then(function (data) {
         var year = data.map(d => d.year);
         var count = data.map(d => d.count);
 
@@ -65,7 +69,7 @@ function plotYears() {
 // plotYears();
 
 function plotIllness() {
-    d3.json("http://localhost:5000/illness").then(function (data) {
+    d3.json("/illness").then(function (data) {
         var illness = data.map(d => d.mental_illness);
         var count = data.map(d => d.count);
 
@@ -87,7 +91,7 @@ function plotIllness() {
 // plotIllness();
 
 function plotGenders() {
-    d3.json("http://localhost:5000/gender").then(function (data) {
+    d3.json("/gender").then(function (data) {
         var gender = data.map(d => d.gender);
         var count = data.map(d => d.count);
 
@@ -109,7 +113,7 @@ function plotGenders() {
 // plotGenders();
 
 function plotCause() {
-    d3.json("http://localhost:5000/causeDeath").then(function (data) {
+    d3.json("/causeDeath").then(function (data) {
         var cause = data.map(d => d.cause);
         var count = data.map(d => d.count);
 

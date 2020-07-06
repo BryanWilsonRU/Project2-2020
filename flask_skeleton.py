@@ -50,12 +50,12 @@ def names():
     """Return a list of all passenger names"""
     # Query all passengers
     
-    results = session.query(Encounter.State, Encounter.Age, Encounter.Gender, Encounter.Race, Encounter.Year, Encounter.Mental_Illness, Encounter.Latitude, Encounter.Longitude).all()
+    results = session.query(Encounter.State, Encounter.Age, Encounter.Gender, Encounter.Race, Encounter.Year, Encounter.Mental_Illness, Encounter.Cause_of_Death, Encounter.Latitude, Encounter.Longitude).all()
     session.close()
 
     # Convert list of tuples into normal list
     all_encounters = []
-    for state, age, gender, race, year, illness, lat, lon in results:
+    for state, age, gender, race, year, illness, cause, lat, lon in results:
         encounter_dict={}
         encounter_dict["state"]= state
         encounter_dict["age"]= age
@@ -63,6 +63,9 @@ def names():
         encounter_dict["race"]= race
         encounter_dict["year"]= year
         encounter_dict["illness"]= illness
+        encounter_dict["cause_of_death"]= cause
+        encounter_dict["lat"] = lat
+        encounter_dict["lon"] = lon
         all_encounters.append(encounter_dict)
 
 
