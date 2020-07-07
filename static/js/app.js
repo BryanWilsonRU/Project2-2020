@@ -11,7 +11,8 @@ function init() {
         new Chart(ctx, {
             data: {
                 datasets: [{
-                    data: count
+                    data: count,
+                    backgroundColor: ["red", "blue", "green", "purple", "black", "white", "orange"]
                 }],
                 labels: race
             },
