@@ -24,6 +24,7 @@ Years = Base.classes.years
 Genders = Base.classes.gender
 Cause = Base.classes.cause_death
 Illness = Base.classes.mental_illness
+Race = Base.classes.race
 
 
 #################################################
@@ -167,9 +168,21 @@ def genders():
 
     return jsonify(all_genders)
 
-@app.route("/stateData")
-def stateData():
-    return jsonify("CleanData/us-states.js")
+@app.route("/race")
+def race():
+    session = Session(engine)
+
+    results = session.query(Race.Race, Race.count)
+    session.close()
+
+    all_races = []
+    for race, count in results:
+        race_dict = {}
+        race_dict["race"] = race
+        race_dict["count"] = count
+        all_races.append(race_dict)
+
+    return jsonify(all_races)
     
 
 if __name__ == '__main__':
