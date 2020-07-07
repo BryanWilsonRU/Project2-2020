@@ -16,49 +16,22 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 var url = "/data";
 
-d3.json(url, function(data) {
-    var markers = L.clusterGroup();
+d3.json(url).then(function(data) {
+    console.log(data);
+
+    var markers = L.markerClusterGroup();
 
     for(var i=0; i<data.length; i++) {
 
         var lat = data[i].lat;
         var lon = data[i].lon;
+        // var race = data[i].race;
+        // var age = data[i].age;
+        // var illness = data[i].illness;
 
-        if (lat & lon) {
-            markers.addLayer(L.marker([lat, lon])).bindPopup(data[i].race);
-        }
-    }
+        markers.addLayer(L.marker([lat, lon])
+          .bindPopup("<h3>" + data[i].race + "</h3><hr><h3> Age " + data[i].age + "</h3><hr><h4> Signs of Mental Illness: " + data[i].illness + "</h4>"));
+    };
 
     myMap.addLayer(markers);
-
-})
-
-// var geoData = "http://localhost:5000/states";
-// var geojson;
-
-// d3.json(geoData, function (data) {
-
-//     state = data.map(d => d.state);
-//     counts = data.map(d => d.count);
-
-//     geojson = L.choropleth(data, {
-
-//         valueProperty = "count",
-
-//         scale: ["#ffffb2", "#b10026"],
-
-//         steps: 10,
-
-//         mode: "q",
-//         style: {
-//             color: "#fff",
-//             weight: 1,
-//             fillOpacity: 0.8
-//         },
-
-//         onEachFeature: function (feature, layer) {
-//             layer.bindPopup("State: " + feature.state + "<br>Civilians Killed by Police 2015-2020:<br>" +
-//                 "$" + feature.count);
-//         }
-//     }).addTo(myMap);
-// });
+});
