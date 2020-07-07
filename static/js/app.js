@@ -12,7 +12,7 @@ function init() {
             data: {
                 datasets: [{
                     data: count,
-                    backgroundColor: ["red", "blue", "green", "purple", "black", "white", "orange"]
+                    backgroundColor: ["red", "blue", "green", "purple", "black", "aqua", "orange"]
                 }],
                 labels: race
             },
