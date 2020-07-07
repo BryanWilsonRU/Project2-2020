@@ -25,6 +25,7 @@ Genders = Base.classes.gender
 Cause = Base.classes.cause_death
 Illness = Base.classes.mental_illness
 Race = Base.classes.race
+Population = Base.classes.population
 
 
 #################################################
@@ -183,6 +184,22 @@ def race():
         all_races.append(race_dict)
 
     return jsonify(all_races)
+
+@app.route("/population")
+def population():
+    session = Session(engine)
+
+    results = session.query(Population.Race, Population.Percent)
+    session.close()
+
+    all_pops = []
+    for race, percent in results:
+        pop_dict = {}
+        pop_dict["race"] = race
+        pop_dict["percent"] = percent
+        all_pops.append(pop_dict)
+
+    return jsonify(all_pops)
     
 
 if __name__ == '__main__':
