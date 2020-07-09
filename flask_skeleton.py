@@ -6,12 +6,13 @@ from sqlalchemy import create_engine, func
 from flask import Flask, jsonify
 from flask import render_template
 import os
+from config import user, password, host, database_name
 
 #################################################
 # Database Setup
 #################################################
 app = Flask(__name__)
-engine = create_engine('postgres://fyrmxogkqhwula:f86d52d7458b3178d2b78f6b47b5d0d4b512efdf4025f8dbb2a55cccdd578539@ec2-34-224-229-81.compute-1.amazonaws.com:5432/d797ubnppbaeh8') or 'postgresql://postgres:postgres@localhost:5432/police_violence_db')
+engine = create_engine(f'postgresql://{user}:{password}@{host}:5432/{database_name}')
 # postgresql://postgres:postgres@localhost:5432/police_violence_db
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL','postgres://fyrmxogkqhwula:f86d52d7458b3178d2b78f6b47b5d0d4b512efdf4025f8dbb2a55cccdd578539@ec2-34-224-229-81.compute-1.amazonaws.com:5432/d797ubnppbaeh8') or 'postgresql://postgres:postgres@localhost:5432/police_violence_db'
 
