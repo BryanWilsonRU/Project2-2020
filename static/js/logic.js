@@ -14,7 +14,7 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: API_KEY
 }).addTo(myMap);
 
-var url = "/data";
+var url = "https://police-encounters-project.herokuapp.com/data";
 
 d3.json(url).then(function(data) {
     console.log(data);

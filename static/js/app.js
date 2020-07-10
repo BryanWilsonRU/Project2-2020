@@ -1,7 +1,7 @@
 // Creating PolarChart
 
 function init() {
-    d3.json("/race").then(function (PCdata) {
+    d3.json("https://police-encounters-project.herokuapp.com/race").then(function (PCdata) {
 
         var race = PCdata.map(d => d.race);
         var count = PCdata.map(d => d.count);

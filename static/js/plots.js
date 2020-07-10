@@ -1,5 +1,5 @@
 function init() {
-    d3.json("/ages").then(function (data) {
+    d3.json("https://police-encounters-project.herokuapp.com/ages").then(function (data) {
         var age = data.map(d => d.age);
         var count = data.map(d => d.count);
 
@@ -30,7 +30,7 @@ function updatePlotly() {
     var y = [];
 
     if (dataset === "dataset1") {
-        d3.json("/states").then(function (data) {
+        d3.json("https://police-encounters-project.herokuapp.com/states").then(function (data) {
             x = data.map(d => d.state);
             y = data.map(d => d.count);
 
@@ -39,7 +39,7 @@ function updatePlotly() {
         })
     }
     if (dataset === "dataset2") {
-        d3.json("/years").then(function (data) {
+        d3.json("https://police-encounters-project.herokuapp.com/years").then(function (data) {
             x = data.map(d => d.year);
             y = data.map(d => d.count);
 
@@ -48,7 +48,7 @@ function updatePlotly() {
         })
     }
     if (dataset === "dataset3") {
-        d3.json("/illness").then(function (data) {
+        d3.json("https://police-encounters-project.herokuapp.com/illness").then(function (data) {
             x = data.map(d => d.mental_illness);
             y = data.map(d => d.count);
 
@@ -57,7 +57,7 @@ function updatePlotly() {
         })
     }
     if (dataset === "dataset4") {
-        d3.json("/gender").then(function (data) {
+        d3.json("https://police-encounters-project.herokuapp.com/gender").then(function (data) {
             x = data.map(d => d.gender);
             y = data.map(d => d.count);
 
@@ -66,7 +66,7 @@ function updatePlotly() {
         })
     }
     if (dataset === "dataset5") {
-        d3.json("/causeDeath").then(function (data) {
+        d3.json("https://police-encounters-project.herokuapp.com/causeDeath").then(function (data) {
             x = data.map(d => d.cause);
             y = data.map(d => d.count);
 
